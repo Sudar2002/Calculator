@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+        <style>
+        *{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color:gray;
+}
+
+header h1 {
+    text-align: center;
+    font-size: 50px;
+    color: mediumvioletred;
+    
+}
+
+.box1{
+    width: 300px;
+    height: 475px;
+    background-color: goldenrod;
+    position: relative;
+    left:39%;
+    border-radius: 10px;
+    top: 20px;
+    border: 5px ridge goldenrod; 
+    
+}
+
+.display{
+    
+    height: 50px;
+    width: 250px;
+    background-color: brown;
+    position: absolute;
+    top: 40px;
+    left: 16px;
+    border: 5px  solid brown ;
+    border-radius: 20px;
+    
+    font-size:50px;
+    border: none;
+    text-align: right;
+    padding-right:10px;
+    padding-left: 10px;
+    
+
+   
+   
+    
+}
+
+    
+    
+.display::placeholder{
+    color:black;
+ 
+    padding: 10px;
+    font-size: 50px;
+    
+    
+}
+
+
+.keys button {
+    height: 55px;
+    width: 55px;
+    background-color: rgb(245, 63, 31);
+    display: inline-block;
+    margin: 4px;
+    position:relative;
+    left: 22px;
+    top:130px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: x-large;
+    color: white;
+    border: 4px  ridge rgb(245, 63, 31) ;
+    
+   
+
+   
+}
+
+.keys .div,.keys .mul,.keys .sub,.keys .add,.keys .equal,.keys .clr,.keys .percent,.keys .dot{
+    background-color: white;
+    color: black;
+    border: 4px  ridge white ;
+}
+
+.keys .del{
+    background-color: red;
+}
+.keys .on{
+    background-color: green;
+    border: 4px  ridge green;
+}
+.keys button:active{
+    background-color:yellow;
+}
+
+.darkMode{
+    width: 100px;
+    height:50px;
+    font-size: 20px;
+    padding: 10px;
+    font-weight: bold;
+    background-color:black;
+    color:white;
+    border-radius: 20px;
+    text-align:center;
+    position: relative;
+    left: 44%;
+    top:25px;
+
+}
+
+.darkMode:active{
+    background-color:lightblue;
+}
+
+.lightMode{
+    
+    background-color:white;
+    color:black;
+    border-radius: 20px;
+    text-align:center;
+    position: relative;
+    left: 42%;
+    top:25px;
+    width: 100px;
+    height:50px;
+    font-size: 20px;
+    padding: 10px;
+    font-weight: bold;
+
+}
+.lightMode:active{
+    background-color:blueviolet;
+}
+        </style>
+        
+</head>
+<body>
+    <header>
+        <h1>SDR Caculator Online</h1>
+    </header>
+<div class="box1">
+    <input  class="display" id="display" placeholder="" value="">
+    <div class="keys">
+
+        <button class="on" value="on">ON</button>
+        <button class="del" value="del">Del</button>
+        <button class="percent" value="%">%</button>
+        <button class="dot" value=".">.</button>
+
+    <button class="n7" value="7">7</button>
+    <button class="n8" value="8">8</button>
+    <button class="n9" value="9">9</button>
+    <button class="div" value="/">/</button>
+    <button class="n4" value="4">4</button>
+    <button class="n5" value="5">5</button>
+    <button class="n6" value="6">6</button>
+    <button class="mul" value="*">*</button>
+    <button class="n1" value="1">1</button>
+    <button class="n2" value="2">2</button>
+    <button class="n3" value="3">3</button>
+    <button class="sub" value="-">-</button>
+    <button class="n0" value="0">0</button>
+    <button class="clr" value="clr">C</button>
+    <button class="equal" value="=">=</button>
+    <button class="add" value="+">+</button>
+</div>
+</div>
+    <div class="mode">
+        <button class="lightMode" id="lightMode" >Light</button>
+        <button class="darkMode" id="darkMode" >Dark</button>
+    </div>
+    <script>
+    const displayOutput=document.querySelector(".display");
+
+const key7=document.querySelector(".n7");
+const key8=document.querySelector(".n8");
+const keyAdd=document.querySelector(".add");
+const keys=document.querySelector(".keys")
+
+
+keys.addEventListener("click",(event)=>{
+   
+        
+    
+
+    if(event.target.value===undefined || event.target.value=="clr"||event.target.value=="=" ||event.target.value=="on" ||event.target.value=="del"){
+    }
+       
+
+    
+    else{
+        console.log(event.target.value);
+        displayOutput.value += event.target.value;
+
+    }
+}
+ 
+);
+
+
+
+keys.addEventListener("click",(event)=>{
+    if(event.target.value==="clr"){
+        displayOutput.value=displayOutput.value.slice(0,-1);
+
+    }
+   else if(event.target.value==="="){
+    
+    
+
+    try{
+        if(displayOutput.value===""){
+            
+        }
+        else{
+        displayOutput.value=eval(displayOutput.value);
+        }
+    }
+    catch(err){
+        alert("Invalid!");
+        console.error("Invalid!");
+    }         
+
+    }
+    else if (event.target.value==="on"){
+        displayOutput.placeholder=0;
+    
+    }
+    else if (event.target.value==="del"){
+        displayOutput.value="";
+    
+    }
+
+
+});
+const body=document.querySelector("body");
+const lightMode=document.querySelector(".lightMode");
+const darkMode=document.querySelector(".darkMode")
+
+lightMode.addEventListener("click",(event)=>{
+    body.style.backgroundColor="White";
+});
+darkMode.addEventListener("click",(event)=>{
+    body.style.backgroundColor="black";
+})
+    </script>
+</body>
+</html>
