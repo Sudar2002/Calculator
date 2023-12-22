@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>;
+    <style>
+        *{
+            background-color: gray;
+        }
+
+        form{
+            margin-top: 10%;
+
+            width: 30%;
+            
+            font-size: 25px;
+            margin-left: 35%;
+
+           
+            
+        }
+        legend{
+            color: yellow;
+        }
+        fieldset{
+            border: 5px ridge magenta;
+            
+            
+            
+            
+          
+        }
+        input,label{
+            display:block;
+            margin-left: 28%;
+           
+            
+            
+           
+            
+        }
+        #Password{
+            margin-top: 15px;
+        }
+        
+        #logIn{
+            margin-top: 15px;
+            font-size: 20px;
+            margin-left: 146px;
+            width:fit-content;
+        }
+        input{
+            width:165px;
+            font-size: 20px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <form>
+        <fieldset><legend>log in</legend>
+        <label for="userName">User name</label>
+        <input type="text"   name="get_user_name" minlength="4" maxlength="15" required id="userName" autocomplete="off">
+        
+        <label for="password" id="Password">Password</label>
+        <input type="password" name="get_password" minlength="4" maxlength="10" required id="password" autocomplete="off">
+        <input type="submit" name="login" value="Log in" id="logIn">
+        
+        </fieldset>
+    </form>
+<!---->
+
+    <!-- <script>
+        const getUserName=document.querySelector('#userName');
+
+        const getPassword=document.querySelector('#password');
+
+        const logIn=document.querySelector('#logIn');
+
+    logIn.addEventListener("click",(event)=>{
+       const userName=getUserName.value;
+        const password=getPassword.value;
+        if(userName=="sutharsan" && password=="sudar"){
+        
+
+
+        }
+        else{
+            alert("User name or Password incorrect!!!")
+        }
+
+
+
+        
+
+    });
+
+    </script> -->
+</body>
+</html>
